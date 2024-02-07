@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:introflutter/constants.dart';
 import 'package:introflutter/custombodywidget1.dart';
 import 'package:introflutter/customtextfield.dart';
+import 'package:introflutter/custom_Button.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -68,10 +69,34 @@ class Home extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text("Login"),
-              )
+              customButton(
+                userNameController: userNameController,
+                buttonlabel: "Login",
+                buttoncolor: primaryColor,
+                passwordController: passwordController,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  customtitleText(label: "No account yet?"),
+                  customtitleText(
+                    label: "Register",
+                    labelColor: primaryColor,
+                  ),
+                ],
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                const customtitleText(label: "Forgot password?"),
+                GestureDetector(
+                  child: const customtitleText(
+                    label: "Retrieve Password",
+                    labelColor: primaryColor,
+                  ),
+                  onTap: () {
+                    print("Recovered Password");
+                  },
+                ),
+              ])
             ],
           ),
         ),
