@@ -19,42 +19,61 @@ class Home extends StatelessWidget {
     TextEditingController passwordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Trial"),
+        title: const Text(""),
         backgroundColor: primaryColor,
         foregroundColor: appWhiteColor,
         automaticallyImplyLeading: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(50, 30, 50, 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset("assets/images/swas.png"),
-              ],
-            ),
-            const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                customtitleText(
-                  label: "Login Screen",
-                  labelColor: primaryColor,
-                  labelFontSize: 25,
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const customtitleText(label: "Username"),
-            customTextField(userFieldController: userNameController),
-            const customtitleText(label: "Password"),
-            customTextField(userFieldController: passwordController)
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(50, 30, 50, 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset("assets/images/swas.png"),
+                ],
+              ),
+              const SizedBox(height: 20),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  customtitleText(
+                    label: "Login Screen",
+                    labelColor: primaryColor,
+                    labelFontSize: 25,
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const customtitleText(label: "Username"),
+              customTextField(
+                userFieldController: userNameController,
+                icon: Icons.person,
+                hint: "Phone number||Email",
+              ),
+              const customtitleText(label: "Password"),
+              customTextField(
+                userFieldController: passwordController,
+                icon: Icons.lock,
+                hidetext: true,
+                isPassword: true,
+                hint: "Secret",
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text("Login"),
+              )
+            ],
+          ),
         ),
       ),
     );
